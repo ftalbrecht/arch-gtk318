@@ -7,3 +7,4 @@ Build order
 * adwaita-icon-theme-gtk318
 * gtk3-gtk318
   Rebuild package with adwaita-icon-theme-gtk318 dependency.
+* gcr-gtk318
