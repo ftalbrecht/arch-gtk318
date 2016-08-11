@@ -14,3 +14,4 @@ Build order
 * gnome-keyring-gtk318
 * gtkmm3-gtk318
 * gnome-common-gtk318
+* pygobject-devel-gtk318
