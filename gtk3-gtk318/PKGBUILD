@@ -1,9 +1,9 @@
-# $Id$
-# Maintainer: Ionut Biru <ibiru@archlinux.org>
-# Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
+# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-pkgbase=gtk3
-pkgname=(gtk3 gtk-update-icon-cache)
+pkgbase=gtk3-gtk318
+pkgname=(gtk3-gtk318 gtk-update-icon-cache-gtk318)
 pkgver=3.18.9
 pkgrel=1
 pkgdesc="GObject-based multi-platform GUI toolkit"
@@ -41,8 +41,9 @@ build() {
     make
 }
 
-package_gtk3() {
-    depends+=(gtk-update-icon-cache)
+package_gtk3-gtk318() {
+    conflicts=('gtk3')
+    depends+=(gtk-update-icon-cache-gtk318)
     optdepends=('libcanberra: gtk3-widget-factory demo')
     install=gtk3.install
 
@@ -54,8 +55,9 @@ package_gtk3() {
     rm "$pkgdir/usr/bin/gtk-update-icon-cache"
 }
 
-package_gtk-update-icon-cache() {
+package_gtk-update-icon-cache-gtk318() {
     pkgdesc="GTK+ icon cache updater"
+    conflicts=('gtk-update-icon-cache')
     depends=(gdk-pixbuf2 hicolor-icon-theme)
     install=gtk-update-icon-cache.install
 
