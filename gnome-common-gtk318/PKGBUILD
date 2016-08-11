@@ -1,24 +1,26 @@
-# $Id$
-# Maintainer: Jan de Groot <jgc@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Jan de Groot <jgc@archlinux.org>
 
-pkgname=gnome-common
+pkgname=gnome-common-gtk318
+_pkgname=gnome-common
+conflicts=('gnome-common')
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="Common development macros for GNOME"
 arch=(any)
-depends=(sh autoconf-archive intltool yelp-tools gtk-doc)
+depends=(sh autoconf-archive intltool yelp-tools-gtk318 gtk-doc-gtk318)
 license=(GPL)
 url="http://www.gnome.org"
-source=(http://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(http://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf')
 
 build() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   ./configure --prefix=/usr --with-autoconf-archive
   make
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   make DESTDIR="$pkgdir" install
 }
