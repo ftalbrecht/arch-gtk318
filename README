@@ -11,3 +11,4 @@ Build order
 * yelp-xsl-gtk318
 * yelp-tools-gtk318
 * gtk-doc-gtk318
+* gnome-keyring-gtk318
