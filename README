@@ -9,3 +9,4 @@ Build order
   Rebuild package with adwaita-icon-theme-gtk318 dependency.
 * gcr-gtk318
 * yelp-xsl-gtk318
+* yelp-tools-gtk318
