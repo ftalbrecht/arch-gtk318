@@ -17,3 +17,5 @@ Build order
 * pygobject-devel-gtk318
 * glade-gtk318
 * gtksourceview3
+* webkit2gtk-gtk318
+* yelp-gtk318
