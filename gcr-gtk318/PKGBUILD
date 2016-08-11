@@ -1,19 +1,21 @@
-# $Id$
-# Maintainer: Ionut Biru <ibiru@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
 
-pkgname=gcr
+pkgname=gcr-gtk318
+_pkgname=gcr
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="A library for bits of crypto UI and parsing"
 arch=(i686 x86_64)
 url="http://www.gnome.org"
 license=('GPL2')
-depends=('dconf' 'desktop-file-utils' 'gtk3' 'hicolor-icon-theme' 'libgcrypt'
+conflicts=('gcr')
+depends=('dconf' 'desktop-file-utils' 'gtk3-gtk318' 'hicolor-icon-theme' 'libgcrypt'
          'p11-kit')
 makedepends=('intltool' 'gobject-introspection' 'python' 'vala' 'libxslt')
 options=('!makeflags')
 install=gcr.install
-source=(http://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz
+source=(http://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz
         10-gcr.conf)
 sha256sums=('d4d16da5af55148a694055835ccd07ad34daf0ad03bdad929bf7cad15637ce00'
             '5f2eda7175ae9f23ee0e09d2beceb24fd2f6daafd7bddfcc1c1f5a3734eb60fc')
@@ -24,7 +26,7 @@ prepare() {
 }
 
 build() {
-  cd "$pkgname-$pkgver"
+  cd "$_pkgname-$pkgver"
   ./configure --prefix=/usr \
     --libexec=/usr/lib/gcr \
     --disable-static \
@@ -34,12 +36,12 @@ build() {
 }
 
 check() {
-  cd "$pkgname-$pkgver"
+  cd "$_pkgname-$pkgver"
   PATH="$srcdir/path:$PATH" dbus-run-session make -k check || :
 }
 
 package() {
-  cd "$pkgname-$pkgver"
+  cd "$_pkgname-$pkgver"
   make DESTDIR="$pkgdir" install
 
   # gcr wants to lock some memory to prevent swapping out private keys
