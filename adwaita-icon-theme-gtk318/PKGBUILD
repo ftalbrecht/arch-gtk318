@@ -1,28 +1,30 @@
-# $Id$
-# Maintainer: Jan de Groot <jgc@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Jan de Groot <jgc@archlinux.org>
 
-pkgname=adwaita-icon-theme
+pkgname=adwaita-icon-theme-gtk318
+_pkgname=adwaita-icon-theme
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="Adwaita icon theme"
 arch=(any)
-depends=('hicolor-icon-theme' 'gtk-update-icon-cache' 'librsvg')
+conflicts=('adwaita-icon-theme')
+depends=('hicolor-icon-theme' 'gtk-update-icon-cache-gtk318' 'librsvg')
 makedepends=('intltool' 'icon-naming-utils')
 url="http://www.gnome.org"
 license=('GPL')
 groups=('gnome')
 install=adwaita-icon-theme.install
 options=('!emptydirs')
-source=(https://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(https://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('5e9ce726001fdd8ee93c394fdc3cdb9e1603bbed5b7c62df453ccf521ec50e58')
 
 build() {
-    cd "$pkgname-$pkgver"
+    cd "$_pkgname-$pkgver"
     ./configure --prefix=/usr
     make
 }
 
 package() {
-    cd "$pkgname-$pkgver"
+    cd "$_pkgname-$pkgver"
     make DESTDIR="$pkgdir" install
 }
