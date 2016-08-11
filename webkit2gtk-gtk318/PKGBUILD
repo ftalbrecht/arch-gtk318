@@ -10,7 +10,7 @@ arch=('i686' 'x86_64')
 url="http://webkitgtk.org/"
 license=('custom')
 depends=('libxt' 'libxslt' 'enchant' 'geoclue2' 'gst-plugins-base-libs'
-	 'libsecret' 'libwebp' 'harfbuzz-icu' 'gtk3-gtk318' 'libnotify' 'hyphen')
+	 'libsecret' 'libwebp' 'harfbuzz-icu' 'gtk3-gtk318' 'libnotify-gtk318' 'hyphen')
 makedepends=('gtk2' 'gperf' 'gobject-introspection' 'ruby' 'gtk-doc-gtk318' 'cmake' 'python')
 optdepends=('gtk2: Netscape plugin support'
             'gst-plugins-base: free media decoding'
