@@ -19,3 +19,4 @@ Build order
 * gtksourceview3
 * webkit2gtk-gtk318
 * yelp-gtk318
+* zenity-gtk318
