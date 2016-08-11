@@ -1,44 +1,47 @@
-# $Id$
-# Maintainer: Ionut Biru <ibiru@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
 
-pkgbase=pygobject
-pkgname=(python-gobject python2-gobject pygobject-devel)
+pkgbase=pygobject-gtk318
+_pkgbase=pygobject
+pkgname=(python-gobject-gtk318 python2-gobject-gtk318 pygobject-devel-gtk318)
 pkgver=3.18.2
 pkgrel=1
 arch=(i686 x86_64)
 url="https://live.gnome.org/PyGObject"
 license=(LGPL)
-makedepends=(python python2 python-cairo python2-cairo gobject-introspection gnome-common)
-source=(https://download.gnome.org/sources/$pkgbase/${pkgver:0:4}/$pkgbase-$pkgver.tar.xz)
+makedepends=(python python2 python-cairo python2-cairo gobject-introspection gnome-common-gtk318)
+source=(https://download.gnome.org/sources/$_pkgbase/${pkgver:0:4}/$_pkgbase-$pkgver.tar.xz)
 sha256sums=('2a3cad1517916b74e131e6002c3824361aee0671ffb0d55ded119477fc1c2c5f')
 
 prepare() {
   mkdir build-py2 build-py3 devel
-  cd ${pkgbase}-${pkgver}
+  cd ${_pkgbase}-${pkgver}
 }
 
 build() {
   cd build-py2
-  ../${pkgbase}-${pkgver}/configure --prefix=/usr --with-python=/usr/bin/python2
+  ../${_pkgbase}-${pkgver}/configure --prefix=/usr --with-python=/usr/bin/python2
   make
 
   cd ../build-py3
-  ../${pkgbase}-${pkgver}/configure --prefix=/usr --with-python=/usr/bin/python
+  ../${_pkgbase}-${pkgver}/configure --prefix=/usr --with-python=/usr/bin/python
   make
 }
 
-package_python-gobject() {
+package_python-gobject-gtk318() {
+  conflicts=('python-gobject')
   pkgdesc="Python 3 bindings for GObject"
-  depends=('gobject-introspection-runtime' "pygobject-devel=$pkgver" 'python' 'cairo')
+  depends=('gobject-introspection-runtime' "pygobject-devel-gtk318=$pkgver" 'python' 'cairo')
 
   cd build-py3
   make DESTDIR="$pkgdir" install
   rm -r "$pkgdir"/usr/{include,lib/pkgconfig}
 }
 
-package_python2-gobject() {
+package_python2-gobject-gtk318() {
+  conflicts=('python2-gobject')
   pkgdesc="Python 2 bindings for GObject"
-  depends=('gobject-introspection-runtime' "pygobject-devel=$pkgver" 'python2' 'cairo')
+  depends=('gobject-introspection-runtime' "pygobject-devel-gtk318=$pkgver" 'python2' 'cairo')
 
   cd build-py2
   make DESTDIR="$pkgdir" install
@@ -46,7 +49,8 @@ package_python2-gobject() {
   python2 -m compileall "$pkgdir"//usr/lib/python2.7/site-packages/gi
 }
 
-package_pygobject-devel() {
+package_pygobject-devel-gtk318() {
+  conflicts=('pygobject-devel')
   pkgdesc="Development files for the pygobject bindings"
 
   cd "devel"
