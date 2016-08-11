@@ -1,6 +1,8 @@
 Build order
 ===========
 
+* gsettings-desktop-schemas
+* glib-networking
 * gtk3-gtk318 (build)
   Build package with adwaita-icon-theme dependency.
 * gtk-update-icon-cache-gtk318 (install)
