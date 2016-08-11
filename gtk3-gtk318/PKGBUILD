@@ -58,7 +58,7 @@ package_gtk3-gtk318() {
 package_gtk-update-icon-cache-gtk318() {
     pkgdesc="GTK+ icon cache updater"
     replaces=('gtk-update-icon-cache')
-    provides=('gtk-update-icon-cache==3.18.9')
+    provides=('gtk-update-icon-cache=3.18.9')
     depends=(gdk-pixbuf2 hicolor-icon-theme)
     install=gtk-update-icon-cache.install
 
