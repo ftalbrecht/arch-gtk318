@@ -3,7 +3,8 @@
 
 pkgname=gtk-doc-gtk318
 _pkgname=gtk-doc
-conflicts=('gtk-doc')
+provides=('gtk-doc=1.25')
+replaces=('gtk-doc')
 pkgver=1.25
 pkgrel=1
 pkgdesc="Documentation tool for public library API"
