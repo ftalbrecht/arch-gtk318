@@ -1,7 +1,9 @@
-# $Id$
-# Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-pkgname=gnome-themes-standard
+pkgname=gnome-themes-standard-gtk318
+_pkgname=gnome-themes-standard
+conflicts=('gnome-themes-standard')
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="Default themes for the GNOME desktop"
@@ -9,23 +11,23 @@ arch=(i686 x86_64)
 url="http://www.gnome.org"
 license=(GPL2)
 depends=(cantarell-fonts ttf-dejavu librsvg)
-makedepends=(intltool gtk2 gtk3)
+makedepends=(intltool gtk2 gtk3-gtk318)
 optdepends=('gtk-engines: HighContrast GTK2 theme')
-groups=(gnome)
-replaces=(gnome-themes)
-conflicts=(gnome-themes)
+groups=(gnome-gtk318)
+replaces=(gnome-themes-gtk318)
+conflicts=(gnome-themes-gtk318)
 options=('!emptydirs')
-source=(http://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(http://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('e646eb04c225282b7df7fff65741adaad4cf9ed2c12616b7310e7edd27d2bacb')
 
 build() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   make DESTDIR="${pkgdir}" install
 }
 
