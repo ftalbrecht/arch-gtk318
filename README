@@ -16,3 +16,4 @@ Build order
 * gnome-common-gtk318
 * pygobject-devel-gtk318
 * glade-gtk318
+* gtksourceview3
