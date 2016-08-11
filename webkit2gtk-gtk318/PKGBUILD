@@ -1,7 +1,8 @@
-# $Id$
-# Maintainer: Eric Bélanger <eric@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Eric Bélanger <eric@archlinux.org>
 
-pkgname=webkit2gtk
+pkgname=webkit2gtk-gtk318
+conflicts=('webkit2gtk')
 pkgver=2.12.3
 pkgrel=1
 pkgdesc="GTK+ Web content engine library"
@@ -9,8 +10,8 @@ arch=('i686' 'x86_64')
 url="http://webkitgtk.org/"
 license=('custom')
 depends=('libxt' 'libxslt' 'enchant' 'geoclue2' 'gst-plugins-base-libs'
-	 'libsecret' 'libwebp' 'harfbuzz-icu' 'gtk3' 'libnotify' 'hyphen')
-makedepends=('gtk2' 'gperf' 'gobject-introspection' 'ruby' 'gtk-doc' 'cmake' 'python')
+	 'libsecret' 'libwebp' 'harfbuzz-icu' 'gtk3-gtk318' 'libnotify' 'hyphen')
+makedepends=('gtk2' 'gperf' 'gobject-introspection' 'ruby' 'gtk-doc-gtk318' 'cmake' 'python')
 optdepends=('gtk2: Netscape plugin support'
             'gst-plugins-base: free media decoding'
             'gst-plugins-good: media decoding'
