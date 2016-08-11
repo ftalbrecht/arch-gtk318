@@ -12,7 +12,7 @@ url="http://www.gtk.org/"
 depends=(atk cairo libcups libxcursor libxinerama libxrandr libxi libepoxy gdk-pixbuf2
          libxcomposite libxdamage pango shared-mime-info colord at-spi2-atk wayland libxkbcommon
          adwaita-icon-theme-gtk318 json-glib rest librsvg)
-makedepends=(gobject-introspection libcanberra gtk-doc)
+makedepends=(gobject-introspection libcanberra gtk-doc-gtk318)
 license=(LGPL)
 source=(https://download.gnome.org/sources/gtk+/${pkgver:0:4}/gtk+-$pkgver.tar.xz
         settings.ini)
@@ -57,7 +57,8 @@ package_gtk3-gtk318() {
 
 package_gtk-update-icon-cache-gtk318() {
     pkgdesc="GTK+ icon cache updater"
-    conflicts=('gtk-update-icon-cache')
+    replaces=('gtk-update-icon-cache')
+    provides=('gtk-update-icon-cache==3.18.9')
     depends=(gdk-pixbuf2 hicolor-icon-theme)
     install=gtk-update-icon-cache.install
 
