@@ -13,3 +13,4 @@ Build order
 * gtk-doc-gtk318
 * gnome-keyring-gtk318
 * gtkmm3-gtk318
+* gnome-common-gtk318
