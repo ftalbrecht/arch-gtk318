@@ -1,26 +1,28 @@
-# $Id$
-# Maintainer: Jan de Groot <jgc@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Jan de Groot <jgc@archlinux.org>
 
-pkgname=zenity
+pkgname=zenity-gtk318
+_pkgname=zenity
+conflicts=('zenity')
 pkgver=3.18.1.1
 pkgrel=1
 pkgdesc="Display graphical dialog boxes from shell scripts"
 arch=(i686 x86_64)
 license=(LGPL)
-depends=(webkit2gtk libnotify)
-makedepends=(itstool yelp-tools gettext)
+depends=(webkit2gtk-gtk318 libnotify-gtk318)
+makedepends=(itstool yelp-tools-gtk318 gettext)
 url="http://www.gnome.org"
-source=(http://ftp.gnome.org/pub/GNOME/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('e6317a03f58b528e2e3330fef5acea39506ec08a7c2aeec5c4f1e7505d43a80a')
 
 build() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   ./configure --prefix=/usr --sysconfdir=/etc \
       --localstatedir=/var
   make
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   make DESTDIR="${pkgdir}" install
 }
