@@ -15,3 +15,4 @@ Build order
 * gtkmm3-gtk318
 * gnome-common-gtk318
 * pygobject-devel-gtk318
+* glade-gtk318
