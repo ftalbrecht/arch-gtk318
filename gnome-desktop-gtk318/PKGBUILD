@@ -1,29 +1,31 @@
-# $Id$
-# Maintainer:  Jan de Groot <jan@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor:  Jan de Groot <jan@archlinux.org>
 
-pkgname=gnome-desktop
+pkgname=gnome-desktop-gtk318
+_pkgname=gnome-desktop
+conflicts=('gnome-desktop')
 pkgver=3.18.2
 pkgrel=1
 epoch=1
 pkgdesc="Library with common API for various GNOME modules"
 arch=(i686 x86_64)
 license=(GPL LGPL)
-depends=(gsettings-desktop-schemas gtk3 libxkbfile xkeyboard-config iso-codes)
+depends=(gsettings-desktop-schemas-gtk318 gtk3-gtk318 libxkbfile xkeyboard-config iso-codes)
 makedepends=(intltool gobject-introspection itstool)
 url="http://www.gnome.org"
 groups=(gnome)
-source=(https://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(https://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('ddd46d022de137543a71f50c7392b32f9b98d5d3f2b53040b35f5802de2e7b56')
 
 build() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
-    --libexecdir=/usr/lib/$pkgname --disable-static \
+    --libexecdir=/usr/lib/$_pkgname --disable-static \
     --with-gnome-distributor="Arch Linux"
   make
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd $_pkgname-$pkgver
   make DESTDIR="$pkgdir" install
 }
