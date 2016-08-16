@@ -1,8 +1,8 @@
 Build order
 ===========
 
-* gsettings-desktop-schemas
-* glib-networking
+* gsettings-desktop-schemas-gtk318
+* glib-networking-gtk318
 * gtk3-gtk318 (build)
   Build package with adwaita-icon-theme dependency.
 * gtk-update-icon-cache-gtk318 (install)
@@ -19,6 +19,7 @@ Build order
 * pygobject-devel-gtk318
 * glade-gtk318
 * gtksourceview3
+* libnotify-gtk318
 * webkit2gtk-gtk318
 * yelp-gtk318
 * zenity-gtk318
