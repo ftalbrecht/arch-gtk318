@@ -16,3 +16,4 @@ Build order
 * webkit2gtk-gtk318
 * yelp-gtk318
 * zenity-gtk318
+* gnome-online-accounts-gtk318
