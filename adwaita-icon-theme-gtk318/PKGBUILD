@@ -7,7 +7,9 @@ pkgver=3.18.0
 pkgrel=1
 pkgdesc="Adwaita icon theme"
 arch=(any)
-conflicts=('adwaita-icon-theme')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('hicolor-icon-theme' 'gtk-update-icon-cache' 'librsvg')
 makedepends=('intltool' 'icon-naming-utils')
 url="http://www.gnome.org"

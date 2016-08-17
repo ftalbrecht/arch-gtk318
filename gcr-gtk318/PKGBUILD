@@ -9,7 +9,9 @@ pkgdesc="A library for bits of crypto UI and parsing"
 arch=(i686 x86_64)
 url="http://www.gnome.org"
 license=('GPL2')
-conflicts=('gcr')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('dconf' 'desktop-file-utils' 'gtk3-gtk318' 'hicolor-icon-theme' 'libgcrypt'
          'p11-kit')
 makedepends=('intltool' 'gobject-introspection' 'python' 'vala' 'libxslt')

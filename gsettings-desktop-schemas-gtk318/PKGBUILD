@@ -5,13 +5,15 @@
 
 pkgname=gsettings-desktop-schemas-gtk318
 _pkgname=gsettings-desktop-schemas
-conflicts=('gsettings-desktop-schemas')
 pkgver=3.18.1
 pkgrel=1
 pkgdesc="Shared GSettings schemas for the desktop"
 arch=(any)
 url="http://live.gnome.org/"
 license=(GPL)
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=(glib2)
 makedepends=(intltool gobject-introspection)
 install=$_pkgname.install

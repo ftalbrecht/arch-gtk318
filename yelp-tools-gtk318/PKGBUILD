@@ -4,11 +4,13 @@
 
 pkgname=yelp-tools-gtk318
 _pkgname=yelp-tools
-conflicts=('yelp-tools')
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="Tools for creating Yelp documentation"
 arch=('any')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('yelp-xsl-gtk318' 'libxslt' 'libxml2' 'itstool')
 license=('GPL')
 options=('!emptydirs')

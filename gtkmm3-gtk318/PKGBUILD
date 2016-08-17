@@ -21,7 +21,11 @@ build() {
 }
 
 package_gtkmm3-gtk318() {
+  _pkgname=gtkmm3
   pkgdesc="C++ bindings for gtk3"
+  provides=("${_pkgname}=$pkgver")
+  conflicts=($_pkgname)
+  replaces=($_pkgname)
   depends=('gtk3-gtk318' 'pangomm' 'atkmm')
   cd "$_pkgbasename-$pkgver"
 
@@ -31,7 +35,11 @@ package_gtkmm3-gtk318() {
 }
 
 package_gtkmm3-docs-gtk318() {
+  _pkgname=gtkmm3-docs
   pkgdesc="Developer documentation for gtkmm v3"
+  provides=("${_pkgname}=$pkgver")
+  conflicts=($_pkgname)
+  replaces=($_pkgname)
 
   cd "$_pkgbasename-$pkgver"
   make -C docs DESTDIR="$pkgdir" install

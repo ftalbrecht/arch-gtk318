@@ -3,14 +3,16 @@
 
 pkgname=glade-gtk318
 _pkgname=glade
-conflicts=('glade')
 pkgver=3.18.3
 pkgrel=1
 pkgdesc="User interface builder for GTK+ and GNOME."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('gtk3-gtk318' 'libxml2' 'desktop-file-utils' 'hicolor-icon-theme')
-makedepends=('intltool' 'gtk-doc-gtk318' 'gobject-introspection' 'python2-gobject-gtk318' 'itstool' 'docbook-xsl')
+makedepends=('intltool' 'gtk-doc' 'gobject-introspection' 'python2-gobject-gtk318' 'itstool' 'docbook-xsl')
 optdepends=('python2: Python widgets support'
             'devhelp: help browser')
 url="http://glade.gnome.org/"

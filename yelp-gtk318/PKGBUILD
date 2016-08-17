@@ -4,14 +4,16 @@
 
 pkgname=yelp-gtk318
 _pkgname=yelp
-conflicts=('yelp')
 pkgver=3.18.1
 pkgrel=1
 pkgdesc="A help browser for GNOME"
 arch=('i686' 'x86_64')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('webkit2gtk-gtk318' 'yelp-xsl-gtk318' 'libxslt' 'hicolor-icon-theme' 'xz' 'bzip2'
          'desktop-file-utils' 'dconf')
-makedepends=('intltool' 'gtk-doc-gtk318' 'itstool')
+makedepends=('intltool' 'gtk-doc' 'itstool')
 groups=('gnome')
 license=('GPL')
 options=('!emptydirs')

@@ -11,8 +11,8 @@ arch=(i686 x86_64)
 url="http://www.gtk.org/"
 depends=(atk cairo libcups libxcursor libxinerama libxrandr libxi libepoxy gdk-pixbuf2
          libxcomposite libxdamage pango shared-mime-info colord at-spi2-atk wayland libxkbcommon
-         adwaita-icon-theme-gtk318 json-glib rest librsvg)
-makedepends=(gobject-introspection libcanberra gtk-doc-gtk318)
+         adwaita-icon-theme json-glib rest librsvg)
+makedepends=(gobject-introspection libcanberra gtk-doc)
 license=(LGPL)
 source=(https://download.gnome.org/sources/gtk+/${pkgver:0:4}/gtk+-$pkgver.tar.xz
         settings.ini)
@@ -42,7 +42,10 @@ build() {
 }
 
 package_gtk3-gtk318() {
-    conflicts=('gtk3')
+    _pkgname='gtk3'
+    provides=("${_pkgname}=$pkgver")
+    replaces=($_pkgname)
+    conflicts=($_pkgname)
     depends+=(gtk-update-icon-cache-gtk318)
     optdepends=('libcanberra: gtk3-widget-factory demo')
     install=gtk3.install
@@ -57,8 +60,10 @@ package_gtk3-gtk318() {
 
 package_gtk-update-icon-cache-gtk318() {
     pkgdesc="GTK+ icon cache updater"
-    replaces=('gtk-update-icon-cache')
-    provides=('gtk-update-icon-cache=3.18.9')
+    _pkgname='gtk-update-icon-cache'
+    provides=("${_pkgname}=$pkgver")
+    replaces=($_pkgname)
+    conflicts=($_pkgname)
     depends=(gdk-pixbuf2 hicolor-icon-theme)
     install=gtk-update-icon-cache.install
 

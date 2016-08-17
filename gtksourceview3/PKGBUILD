@@ -2,12 +2,16 @@
 # Maintainer: Ionut Biru <ibiru@archlinux.org>
 
 pkgname=gtksourceview3-gtk318
+__pkgname=gtksourceview3
 _pkgbasename=gtksourceview
 pkgver=3.18.2
 pkgrel=1
 pkgdesc="A text widget adding syntax highlighting and more to GNOME"
 arch=('i686' 'x86_64')
 license=('GPL')
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 depends=('gtk3-gtk318' 'libxml2')
 makedepends=('intltool' 'gobject-introspection' 'glade-gtk318' 'vala')
 url="http://www.gnome.org"

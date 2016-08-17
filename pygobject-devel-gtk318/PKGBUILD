@@ -29,8 +29,11 @@ build() {
 }
 
 package_python-gobject-gtk318() {
-  conflicts=('python-gobject')
+  _pkgname=python-gobject
   pkgdesc="Python 3 bindings for GObject"
+  provides=("${_pkgname}=$pkgver")
+  conflicts=($_pkgname)
+  replaces=($_pkgname)
   depends=('gobject-introspection-runtime' "pygobject-devel-gtk318=$pkgver" 'python' 'cairo')
 
   cd build-py3
@@ -39,8 +42,11 @@ package_python-gobject-gtk318() {
 }
 
 package_python2-gobject-gtk318() {
-  conflicts=('python2-gobject')
+  _pkgname=python2-gobject
   pkgdesc="Python 2 bindings for GObject"
+  provides=("${_pkgname}=$pkgver")
+  conflicts=($_pkgname)
+  replaces=($_pkgname)
   depends=('gobject-introspection-runtime' "pygobject-devel-gtk318=$pkgver" 'python2' 'cairo')
 
   cd build-py2
@@ -50,8 +56,11 @@ package_python2-gobject-gtk318() {
 }
 
 package_pygobject-devel-gtk318() {
-  conflicts=('pygobject-devel')
+  _pkgname=pygobject-devel
   pkgdesc="Development files for the pygobject bindings"
+  provides=("${_pkgname}=$pkgver")
+  conflicts=($_pkgname)
+  replaces=($_pkgname)
 
   cd "devel"
   mkdir -p "$pkgdir"/usr/{include,lib}

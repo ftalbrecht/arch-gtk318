@@ -3,11 +3,13 @@
 
 pkgname=yelp-xsl-gtk318
 _pkgname=yelp-xsl
-conflicts=('yelp-xsl')
 pkgver=3.18.1
 pkgrel=1
 pkgdesc="Stylesheets for Yelp"
 arch=(any)
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
 makedepends=(intltool libxslt libxml2 itstool)
 license=(GPL)
 options=('!emptydirs')

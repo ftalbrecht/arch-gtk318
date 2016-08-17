@@ -3,12 +3,14 @@
 
 pkgname=gnome-common-gtk318
 _pkgname=gnome-common
-conflicts=('gnome-common')
 pkgver=3.18.0
 pkgrel=1
 pkgdesc="Common development macros for GNOME"
 arch=(any)
-depends=(sh autoconf-archive intltool yelp-tools-gtk318 gtk-doc-gtk318)
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
+depends=(sh autoconf-archive intltool yelp-tools-gtk318 gtk-doc)
 license=(GPL)
 url="http://www.gnome.org"
 source=(http://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
