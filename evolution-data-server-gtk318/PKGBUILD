@@ -1,21 +1,25 @@
-# $Id$
-# Maintainer: Jan de Groot <jgc@archlinux.org>
+# Maintainer: Felix Schindler <aur at schindlerfamily dot de>
+# Contributor: Jan de Groot <jgc@archlinux.org>
 
-pkgname=evolution-data-server
+pkgname=evolution-data-server-gtk318
+_pkgname=evolution-data-server
 pkgver=3.18.5
 pkgrel=1
 pkgdesc="Centralized access to appointments and contacts"
 arch=(i686 x86_64)
-depends=(gnome-online-accounts nss krb5 libgweather libical db libgdata libphonenumber)
+provides=("${_pkgname}=$pkgver")
+conflicts=($_pkgname)
+replaces=($_pkgname)
+depends=(gnome-online-accounts-gtk318 nss krb5 libgweather-gtk318 libical db libgdata libphonenumber)
 makedepends=(intltool gperf gobject-introspection vala gtk-doc boost)
-install=$pkgname.install
+install=$_pkgname.install
 url="https://wiki.gnome.org/Apps/Evolution"
 license=(GPL)
-source=(https://download.gnome.org/sources/$pkgname/${pkgver:0:4}/$pkgname-$pkgver.tar.xz)
+source=(https://download.gnome.org/sources/$_pkgname/${pkgver:0:4}/$_pkgname-$pkgver.tar.xz)
 sha256sums=('a897c789925e86df31a1c78212b431cca13dc4d5a3d87e1fb3d507df3994e8e1')
 
 build() {
-  cd "$pkgname-$pkgver"
+  cd "$_pkgname-$pkgver"
   ./configure --prefix=/usr --sysconfdir=/etc \
       --localstatedir=/var --with-openldap=yes \
       --libexecdir=/usr/lib/evolution-data-server \
@@ -28,6 +32,6 @@ build() {
 }
 
 package() {
-  cd "$pkgname-$pkgver"
+  cd "$_pkgname-$pkgver"
   make DESTDIR="$pkgdir" install
 }

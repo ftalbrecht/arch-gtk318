@@ -19,3 +19,4 @@ Build order
 * gnome-online-accounts-gtk318
 * geocode-glib-gtk318
 * libgweather-gtk318
+* evolution-data-server-gtk318
