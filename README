@@ -17,3 +17,4 @@ Build order
 * yelp-gtk318
 * zenity-gtk318
 * gnome-online-accounts-gtk318
+* geocode-glib-gtk318
