@@ -18,3 +18,4 @@ Build order
 * zenity-gtk318
 * gnome-online-accounts-gtk318
 * geocode-glib-gtk318
+* libgweather-gtk318
